@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/reset.css" />
-    <link rel="stylesheet" href="./style/style.css" />
-    
-    <title>Weartake</title>
-  </head>
-  <body>
-    <header>
-      <div class="header-container">
-        <h1>Weartake</h1>
-        <nav>
-          <ul class="header-menu">
-            <li>Todos</li>
-            <li>Acessórios</li>
-            <li>Camisetas</li>
-          </ul>
-        </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style/reset.css" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <script src="./script/database.js" defer></script>
+  <script src="./script/index.js" defer></script>
+
+  <title>Weartake</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <h1>Weartake</h1>
+      <nav>
+        <ul class="header-menu">
+          <li>Todos</li>
+          <li>Acessórios</li>
+          <li>Camisetas</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="main-cards">
+      <ul class="vitrine_item">
+        <!-- <li>
+          <div class="img_item_div">
+            <img id="product_img" src="" alt="">
+          </div>
+          <h2 class="name_item">nome item</h2>
+          <p class="desc_item">descrição item</p>
+          <p class="price_item">valor item</p>
+          <button class="btn_add_cart" id="btn_id">adicioanr ao carrinho</button>
+        </li> -->
+      </ul>
+    </section>
+
+    <section class="main-details">
+      <div class="main-search">
+        <input class="search-input" type="text" placeholder="Digite aqui sua pesquisa" />
+        <button class="search-button">Pesquisar</button>
       </div>
-    </header>
-    <main>
-      <section class="main-cards">
-        <ul></ul>
-      </section>
-      <section class="main-details">
-        <div class="main-search">
-          <input
-            class="search-input"
-            type="text"
-            placeholder="Digite aqui sua pesquisa"
-          />
-          <button class="search-button">Pesquisar</button>
+
+      <aside>
+        <div class="cart-title">
+          <h4>Carrinho de compras</h4>
         </div>
-        <aside>
-          <div class="cart-title">
-            <h4>Carrinho de compras</h4>
+        <div class="cart-empty">
+          <h5>Carrinho Vazio</h5>
+          <p>Adicione Itens</p>
+        </div>
+
+        <div class="cart-products">
+          <ul class="cart-list"></ul>
+        </div>
+        <div class="cart-details">
+          <div class="details-values">
+            <p>Quantidade:</p><span>0</span>
           </div>
-          <div class="cart-empty">
-            <h5>Carrinho Vazio</h5>
-            <p>Adicione Itens</p>
+          <div class="details-values">
+            <p>Total:</p>
+            <span>R$0,00</span>
           </div>
 
-          <div class="cart-products">
-            <ul class="cart-list"></ul>
-          </div>
-          <div class="cart-details">
-            <div class="details-values">
-              <p>Quantidade:</p><span>0</span>
-            </div>
-            <div class="details-values">
-              <p>Total:</p>
-              <span>R$0,00</span>
-            </div>
+        </div>
 
-          </div>
 
-          
-          </div>
-        </aside>
-      </section>
-    </main>
-  </body>
+        </div>
+      </aside>
+
+    </section>
+
+  </main>
+</body>
+
 </html>
