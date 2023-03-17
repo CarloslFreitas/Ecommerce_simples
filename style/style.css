@@ -141,7 +141,7 @@ main {
   cursor:auto;
 }
 
-h3{
+.h3_list{
  font-weight: 800;
  margin: 10px 0px 20px 0px;
  color: #333333;
@@ -161,7 +161,7 @@ h3{
 }
 
 .btn_add_cart{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   background-color: #2e245e;
   border-radius: 5px;
   color: white;
@@ -178,6 +178,70 @@ h3{
   border: none;
 }
 .btn_add_cart:active {
+  background-color: #2e245e;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+.card_list{
+  box-shadow: 1px 1px 1.5px -1px rgba(0, 0, 0, 0.658);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 10px solid white;
+  margin: 5px 0px 0px 0px;
+  transition: 0.4s;
+}
+.card_list:hover{
+  border-left: solid 5px #37268c;
+  border-right: solid 5px #37268c;
+  background-color: #9cb6ff2a;
+  transition: 0.4s;
+}
+
+.div_elements_cart{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 167px;
+  height: fit-content;
+  margin: 5px 0px 10px 5px;
+}
+.card_img{
+  width: 100px;
+  height: fit-content;
+}
+.h3_cart{
+  font-weight: 700;
+  font-size: 12px;
+}
+.p2_cart{
+  font-weight: 500;
+  color: #2e245e;
+  font-weight: 550;
+  font-size: 15px;
+  margin: 8px 0px 0px 0px;
+}
+.btn_remove_cart{
+  margin: 5px 0px 0px 0px;
+  background-color: #2e245e;
+  border-radius: 5px;
+  color: white;
+  transition: 0.3s;
+  box-shadow: 0 5px #999;
+  height: 20px;
+  border: none;
+}
+.btn_remove_cart:hover{
+  background-color: #4a26ff;
+  cursor: pointer;
+  border: solid 2px #1f41ff;
+  font-weight: bold;
+  border: none;
+}
+.btn_remove_cart:active {
   background-color: #2e245e;
   box-shadow: 0 3px #666;
   transform: translateY(4px);

@@ -83,6 +83,7 @@ function createCards(list){
         img.src = produto.img
         img.className = 'img_tr'
         h3.innerText = produto.nameItem
+        h3.className = 'h3_list'
         p1.innerText = produto.description
         p1.className = 'p1'
         p2.innerText = `R$ ${produto.value.toFixed(2)}`
@@ -103,6 +104,9 @@ function createCards(list){
         btn.addEventListener('click', function(e){
             
             
+            let removeCartEmpty = document.querySelector('.cart-empty')
+            removeCartEmpty.remove()
+
             conttt++ // CONTADOR QUE ATUALIZADA CADA VEZ QUE O ITEM É ADICIONADO NO CARRINHO
             document.querySelector('#span_quant').innerHTML = `${conttt}`
 
@@ -132,6 +136,7 @@ function createItemCartCard(item){
 //CRIANDO O CARD PARA EXIBIR DENTRO DO CARRINHO
     let li = document.createElement('li')
     let img = document.createElement('img')
+    let divElements = document.createElement('div')
     let h3 = document.createElement('h3')
     let p2 = document.createElement('p')
     let btn = document.createElement('button')
@@ -139,22 +144,28 @@ function createItemCartCard(item){
     li.id = `idL_${item.id}`
     li.classList.add('card_list')
     img.src = item.img
+    img.className = 'card_img'
+    divElements.classList.add('div_elements_cart')
     h3.innerText = item.nameItem
-    p2.innerText = item.value.toFixed(2)
+    h3.className = 'h3_cart'
+    p2.innerText = `R$ ${item.value.toFixed(2)}`
+    p2.className = 'p2_cart'
     btn.innerHTML = 'Remover'
     btn.id = `cart_id_${item.id}`
-    btn.classList.add('btn_add_cart')
+    btn.classList.add('btn_remove_cart')
 
     li.appendChild(img)
-    li.appendChild(h3)
-    li.appendChild(p2)
-    li.appendChild(btn)
+    li.appendChild(divElements)
+    divElements.appendChild(h3)
+    divElements.appendChild(p2)
+    divElements.appendChild(btn)
 
 //EVENTO DE REMOÇÃO DO ITEM DO CARRINHO
     btn.addEventListener('click', function(event){
         let itemPath = event.composedPath() //CAMINHO DO ITEM PERTECENTE AO ID DO BOTAO CLICADO
-        itemPath[1].remove()    // POSIÇÃO 1: REPRESENTA O PAI DO BOTÃO E TODOS OS ELEMENTOS REFERENTES AO ITEM DO BOTÃO A SER REMOVIDO DA LISTA
-        
+        itemPath[2].remove()    // POSIÇÃO 1: REPRESENTA O PAI DO BOTÃO E TODOS OS ELEMENTOS REFERENTES AO ITEM DO BOTÃO A SER REMOVIDO DA LISTA
+        console.log(itemPath)
+
         conttt-- // CONTADOR QUE ATUALIZADA CADA VEZ QUE O ITEM É REMOVIDO NO CARRINHO
         document.querySelector('#span_quant').innerHTML = `${conttt}`
 
