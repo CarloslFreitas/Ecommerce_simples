@@ -61,4 +61,44 @@ const data = [
     addCart: "Adicionar ao carrinho",
     tag: ["Camisetas"],
   },
+  {
+    id: 7,
+    img: "./images/moletom.svg",
+    nameItem: "Champion Packable Jacket",
+    description:
+      "Proteja-se dos elementos com esta jaqueta embalável Champion. ",
+    value: 100,
+    addCart: "Adicionar ao carrinho",
+    tag: ["Camisetas"],
+  },
+  {
+    id: 8,
+    img: "./images/moletom.svg",
+    nameItem: "Champion Packable Jacket",
+    description:
+      "Proteja-se dos elementos com esta jaqueta embalável Champion. ",
+    value: 100,
+    addCart: "Adicionar ao carrinho",
+    tag: ["Camisetas"],
+  },
+  {
+    id: 9,
+    img: "./images/moletom.svg",
+    nameItem: "Champion Packable Jacket",
+    description:
+      "Proteja-se dos elementos com esta jaqueta embalável Champion. ",
+    value: 100,
+    addCart: "Adicionar ao carrinho",
+    tag: ["Camisetas"],
+  },
+  {
+    id: 10,
+    img: "./images/moletom.svg",
+    nameItem: "Champion Packable Jacket",
+    description:
+      "Proteja-se dos elementos com esta jaqueta embalável Champion. ",
+    value: 100,
+    addCart: "Adicionar ao carrinho",
+    tag: ["Camisetas"],
+  },
 ];

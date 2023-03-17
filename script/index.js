@@ -60,12 +60,16 @@
 //     }
 // }
 // createCards(data)
-
+let increaseValues = document.querySelector('#sum_value')
+let spanQuant = document.querySelector('#span_quant')
 let conttt = 0
 let sumValue = 0
+let listaUL = document.querySelector('.vitrine_item')
+let cart_list = document.querySelector('.cart-products')
+let CartEmpty = document.querySelector('.cart-empty')
+let cartDetails = document.querySelector('.cart-details')
 
 function createCards(list){
-    let listaUL = document.querySelector('.vitrine_item')
 
     for(let i = 0; i < list.length; i++){
         let produto = list[i]
@@ -100,27 +104,31 @@ function createCards(list){
         li.appendChild(btn)
         listaUL.appendChild(li)
 
+    //INICIAR EM TELA OCULTADO
+        cartDetails.style.display = 'none'
+        
     //EVENTO DE CLIQUE, QUANDO O BOTÃO FOR CLICADO, SERÁ REFERENCIADO O ITEM, E RETORNADO A PARTIR DO ID AS INFORMAÇÕES
-        btn.addEventListener('click', function(e){
-            
-            
-            let removeCartEmpty = document.querySelector('.cart-empty')
-            removeCartEmpty.remove()
-
+        btn.addEventListener('click', function(e){ 
             conttt++ // CONTADOR QUE ATUALIZADA CADA VEZ QUE O ITEM É ADICIONADO NO CARRINHO
-            document.querySelector('#span_quant').innerHTML = `${conttt}`
-
-            sumValue += list[i].value //CADA VEZ QUE O BOTAO DE ADICIONAR FOR CLICACO, IRA SOMAR OS CALORES DOS ITENS NO CARRINHO
-            document.querySelector('#sum_value').innerHTML = `R$ ${sumValue.toFixed(2)}`
-
+            spanQuant.innerHTML = `${conttt}`
+            
+            sumValue += list[i].value //CADA VEZ QUE O BOTAO DE ADICIONAR FOR CLICACO, IRA SOMAR OS VALORES DOS ITENS NO CARRINHO
+            increaseValues.innerHTML = `R$ ${sumValue.toFixed(2)}`
+            
             let id_Produto = e.target.id     // atribuindo a referencia de id do item clicado
             let id =  parseInt(id_Produto.substring(8))  //recortar parte do indice a partir do indice informado
             
             let item = findItem(id) // FAZENDO USO DA FUNÇÃO FINDITEM PASSANDO COMO PARAMETRO O CLICK DO BOTÃO 
-
+            
             let itemProduct = createItemCartCard(item) // VARIAVEL RECEBENDO COMO CONTEUDO A REFERENCIA DO ID RECEBIDO PELA ATRIBUIÇÃO ANTERIOR 'ITEM'
-                                                       // E CRIANDO UM MINI CARD PARA ARMAZENAR DENTRO DO CART
-            document.querySelector('.cart-list').appendChild(itemProduct) //ADICIONA O OBJETO A UL HTML
+            // E CRIANDO UM MINI CARD PARA ARMAZENAR DENTRO DO CART
+            cart_list.appendChild(itemProduct) //ADICIONA O OBJETO A UL HTML
+            
+            //OCULTAR E MOSTRAR CARRINHO VAZIO E DETALHES DO CARRINHO
+            if(conttt > 0){
+                CartEmpty.style.display = 'none'
+                cartDetails.style.display = 'flex'
+            }
         })
     }
 }
@@ -162,16 +170,24 @@ function createItemCartCard(item){
 
 //EVENTO DE REMOÇÃO DO ITEM DO CARRINHO
     btn.addEventListener('click', function(event){
+
         let itemPath = event.composedPath() //CAMINHO DO ITEM PERTECENTE AO ID DO BOTAO CLICADO
         itemPath[2].remove()    // POSIÇÃO 1: REPRESENTA O PAI DO BOTÃO E TODOS OS ELEMENTOS REFERENTES AO ITEM DO BOTÃO A SER REMOVIDO DA LISTA
         console.log(itemPath)
 
         conttt-- // CONTADOR QUE ATUALIZADA CADA VEZ QUE O ITEM É REMOVIDO NO CARRINHO
-        document.querySelector('#span_quant').innerHTML = `${conttt}`
+        spanQuant.innerHTML = `${conttt}`
 
         sumValue -= item.value //CADA VEZ QUE O BOTAO DE ADICIONAR FOR CLICACO, IRA SOMAR OS CALORES DOS ITENS NO CARRINHO
-        document.querySelector('#sum_value').innerHTML = `R$ ${sumValue.toFixed(2)}`
+        increaseValues.innerHTML = `R$ ${sumValue.toFixed(2)}`
+
+        //MOSTRAR E OCULTAR O CARRINHO VAZIO E DETALHES DO CARRINHO
+        if(conttt == 0){
+            CartEmpty.style.display = 'flex'
+            cartDetails.style.display = 'none'
+        }
     })
     return li
 }
 createCards(data)
+
