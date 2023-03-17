@@ -131,7 +131,7 @@ main {
   overflow-y: auto;
 }
 .card{
-  margin: 20px 20px 30px 50px;
+  margin: 20px 20px 30px 35px;
   max-width: 210px;
   background-color: rgba(243, 243, 243, 0.884);
   border-radius: 5px;
