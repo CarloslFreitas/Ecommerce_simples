@@ -55,7 +55,7 @@ function createCards(list) {
             increaseValues.innerHTML = `R$ ${sumValue.toFixed(2)}`
 
             let id_Produto = e.target.id
-            let id = parseInt(id_Produto.substring(8))  //recortar parte do indice a partir do indice informado
+            let id = parseInt(id_Produto.substring(8))  
 
             let item = findItem(id) //FAZENDO USO DA FUNÇÃO FINDITEM PASSANDO COMO PARAMETRO O CLICK DO BOTÃO 
             let itemProduct = createItemCartCard(item)
@@ -127,7 +127,7 @@ function createItemCartCard(item) {
 }
 createCards(data)
 
-//BARRA DE PESQUISA (DEMO/TIRA-DÚVIDAS -> WILSON)
+//BARRA DE PESQUISA 
 let findButtonItem = document.querySelector('.search-button')
 
 findButtonItem.addEventListener('click', function(){
@@ -141,14 +141,12 @@ findButtonItem.addEventListener('click', function(){
         }
         return false
     })
-    // "REMOVENDO/ REESCREVENDO O VALOR PARA VAZIO" DA VITRINE PARA RECEBER APENAS O ITEM QUE FOI PESQUISADO
+    // "REMOVENDO/ REESCREVENDO O VALOR PARA VAZIO"
     listaUL.innerHTML = ''
     createCards(foundItemReturn)
 })
 
-//CHAMANDO E DECLARANDO OS BOTOES DO NAV
-const buttonsFilter = document.querySelectorAll('.filter-p')
-
+let buttonsFilter = document.querySelectorAll('.filter-p')
 function filterCards(tagName){
     if(tagName === 'Todos'){
         return data
@@ -164,15 +162,11 @@ function filterCards(tagName){
     return usersFiltred
 }
 
-// const cardsss = filterCards('Todos')
-// console.log(cardsss)
-
 //QUANDO UM DOS BOTOES DO NAV FOREM CLICADOS, SEU VALOR EM STRING SERÁ COMPARADO COM O VALOR DAS TAGS DO ITENS
-// ---- (DEMO 13/03 --> WILSON) ---- //
 for(let i = 0; i < buttonsFilter.length; i++){
     buttonsFilter[i].addEventListener('click', function(){
-        const tag = buttonsFilter[i].innerText
-        const cardsFiltred = filterCards(tag)
+        let tag = buttonsFilter[i].innerText
+        let cardsFiltred = filterCards(tag)
         console.log(cardsFiltred)
         listaUL.innerHTML = ''
         createCards(cardsFiltred)
