@@ -43,7 +43,9 @@ function createCards(list) {
         listaUL.appendChild(li)
 
         //INICIAR EM TELA OCULTADO
-        cartDetails.style.display = 'none'
+        if(conttt == 0){
+            cartDetails.style.display = 'none'
+        }
 
         //EVENTO DE CLIQUE, QUANDO O BOTÃO FOR CLICADO, SERÁ REFERENCIADO O ITEM, E RETORNADO A PARTIR DO ID AS INFORMAÇÕES
         btn.addEventListener('click', function (e) {
@@ -144,7 +146,35 @@ findButtonItem.addEventListener('click', function(){
     createCards(foundItemReturn)
 })
 
+//CHAMANDO E DECLARANDO OS BOTOES DO NAV
+const buttonsFilter = document.querySelectorAll('.filter-p')
 
+function filterCards(tagName){
+    if(tagName === 'Todos'){
+        return data
+    }
 
+    let usersFiltred = []
 
+    for(let i = 0; i < data.length; i++){
+        if (data[i].tag == tagName) {
+            usersFiltred.push(data[i])
+        }
+    }
+    return usersFiltred
+}
 
+// const cardsss = filterCards('Todos')
+// console.log(cardsss)
+
+//QUANDO UM DOS BOTOES DO NAV FOREM CLICADOS, SEU VALOR EM STRING SERÁ COMPARADO COM O VALOR DAS TAGS DO ITENS
+// ---- (DEMO 13/03 --> WILSON) ---- //
+for(let i = 0; i < buttonsFilter.length; i++){
+    buttonsFilter[i].addEventListener('click', function(){
+        const tag = buttonsFilter[i].innerText
+        const cardsFiltred = filterCards(tag)
+        console.log(cardsFiltred)
+        listaUL.innerHTML = ''
+        createCards(cardsFiltred)
+    })
+}
