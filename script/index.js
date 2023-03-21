@@ -77,7 +77,7 @@ function findItem(id) {
     }
 }
 function createItemCartCard(item) {
-    
+
     //CRIANDO O CARD PARA EXIBIR DENTRO DO CARRINHO
     let li = document.createElement('li')
     let img = document.createElement('img')
@@ -124,4 +124,27 @@ function createItemCartCard(item) {
     return li
 }
 createCards(data)
+
+//BARRA DE PESQUISA (DEMO/TIRA-DÚVIDAS -> WILSON)
+let findButtonItem = document.querySelector('.search-button')
+
+findButtonItem.addEventListener('click', function(){
+
+    let findItemInput = document.querySelector('.search-input')
+    let foundItemReturn = data.filter(function (item){
+
+        let normalizeString = findItemInput.value.toUpperCase()
+        if(item.nameItem.toUpperCase().includes(normalizeString)){
+            return true
+        }
+        return false
+    })
+    // "REMOVENDO/ REESCREVENDO O VALOR PARA VAZIO" DA VITRINE PARA RECEBER APENAS O ITEM QUE FOI PESQUISADO
+    listaUL.innerHTML = ''
+    createCards(foundItemReturn)
+})
+
+
+
+
 
